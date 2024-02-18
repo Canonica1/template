@@ -312,3 +312,21 @@ struct sufmass {
         get_lcp();
     }
 };
+from os import system
+system("g++ stupid.cpp -o stupid") 
+system("g++ sol.cpp -o sol") 
+system("g++ gen.cpp -o gen") 
+while True:
+    system("gen.exe >test.txt")
+    system("stupid.exe < test.txt > st.out")
+    system("sol.exe < test.txt > sol.out")
+    if open("st.out").read() == open("sol.out").read():
+        print("OK")
+    else:
+        print("WA")
+        print(open("test.txt").read())
+        print("sol: ")
+        print(open("sol.out").read(), end="")
+        print("stupid: ")
+        print(open("st.out").read(), end="")
+        break
